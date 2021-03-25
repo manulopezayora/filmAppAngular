@@ -5,5 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class LoginService {
 
+  data: any = {
+    username: "manuel",
+    password: "1234"
+  }
+
   constructor() { }
 }
