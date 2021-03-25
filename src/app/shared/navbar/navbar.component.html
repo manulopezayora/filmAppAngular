@@ -7,14 +7,17 @@
   </div>
   <ul class="menu__list" [ngClass]="{'menu__list--active': show}">
     <li
+      (click)="showMenu()"
       class="menu__list-item"
       routerLink="home"
     >Home</li>
     <li
+      (click)="showMenu()"
       class="menu__list-item"
       routerLink="favourites"
     >Favourites</li>
     <li
+      (click)="showMenu()"
       class="menu__list-item"
       routerLink="logout"
     >Logout</li>
