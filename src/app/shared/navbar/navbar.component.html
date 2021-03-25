@@ -1,6 +1,11 @@
 <nav class="menu">
-  <h1>FilmApp</h1>
-  <ul class="menu__list">
+  <h1 class="logo">FilmApp</h1>
+  <div class="menu__box-button" (click)="showMenu()">
+    <div class="menu__bar" [ngClass]="{'menu__bar--active': show}"></div>
+    <div class="menu__bar" [ngClass]="{'menu__bar--active': show}"></div>
+    <div class="menu__bar" [ngClass]="{'menu__bar--active': show}"></div>
+  </div>
+  <ul class="menu__list" [ngClass]="{'menu__list--active': show}">
     <li
       class="menu__list-item"
       routerLink="home"
