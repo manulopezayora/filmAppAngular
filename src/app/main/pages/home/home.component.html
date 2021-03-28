@@ -1,1 +1,13 @@
-<p>home works!</p>
+<app-search-input (onEnter)="search($event)"></app-search-input>
+
+<div class="film-container">
+  <p *ngIf="noResults">No hay resultados</p>
+  <div class="card" *ngFor="let film of filmResults">
+    <h1 class="card__title">{{film.Title}}</h1>
+    <img class="card__poster" [src]="film.Poster" [alt]="film.Title">
+    <div class="card__buttons">
+      <a class="card__butons-link" href="">Description...</a>
+      <a class="card__butons-link" href="">Add to Fav</a>
+    </div>
+  </div>
+</div>
