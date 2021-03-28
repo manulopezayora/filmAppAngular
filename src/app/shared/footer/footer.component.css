@@ -1,0 +1,22 @@
+.footer {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  background: linear-gradient(to left, #515151, #000);
+  color: #eee;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: .5rem;
+}
+
+.footer__link-text {
+  font-size: .8rem;
+}
+
+.footer__link-item {
+  color: inherit;
+}
+
+.footer__copy {
+  font-size: .8rem;
+}
