@@ -1,25 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  data: any = {
-    username: "manuel",
-    password: "1234"
+  loginForm = this._formBuilder.group({
+    username: ['', [Validators.required, Validators.minLength(3)]],
+    password: ['', [Validators.required]],
+  });
+
+
+  constructor(private _formBuilder: FormBuilder) { }
+
+
+  onSubmit = (): void => {
+    console.log(JSON.stringify(this.loginForm.value))
   }
 
-
-  constructor() { }
-
-  ngOnInit(): void {
+  fieldIsValid = (name: string): boolean => {
+    const fieldName: any = this.loginForm.get(name);
+    return (fieldName.invalid && fieldName.touched);
   }
 
-  submit() {
-    console.log("Hey")
+  labelAnimation = (name: string): boolean => {
+    const fieldName: any = this.loginForm.get(name);
+    return (!fieldName.pristine && fieldName.value);
   }
 
 }

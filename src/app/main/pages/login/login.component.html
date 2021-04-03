@@ -1,15 +1,52 @@
 <div class="form-container">
-  <form (onSubmit)="submit()">
-    <div class="input-cont">
-      <input type="text" />
-      <label>Username</label>
-      <div class="border1"></div>
+  <form class="form" (ngSubmit)="onSubmit()" novalidate [formGroup]="loginForm">
+    <div class="form__field">
+      <input
+        class="form__input"
+        type="text"
+        formControlName="username"
+        [ngClass]="{'input-invalid': fieldIsValid('username')}"
+      />
+      <label
+        class="form__input-label"
+        [ngClass]="{
+          'label-invalid': fieldIsValid('username'),
+          'form__input-active': labelAnimation('username')
+        }"
+      >Username</label>
     </div>
-    <div class="input-cont">
-      <input type="password" />
-      <label>Password</label>
-      <div class="border2"></div>
+    <div class="form__field">
+      <input
+        class="form__input"
+        type="password"
+        formControlName="password"
+        [ngClass]="{'input-invalid': fieldIsValid('password')}"
+      />
+      <label
+      class="form__input-label"
+      [ngClass]="{
+        'label-invalid': fieldIsValid('password'),
+        'form__input-active': labelAnimation('password')
+      }"
+      >Password</label>
     </div>
-    <input class="submit-button" type="submit" value="Sign In" />
+    <button type="submit" class="form__submit-button" [disabled]="loginForm.invalid">Log In</button>
+    <div class="form__feedback">
+      <p
+        class="form__feedback-text"
+      >
+      Please enter your username and password. If the user does not exist, a new user will be generated.
+      </p>
+      <span
+      class="form__feedback-text-float"
+      *ngIf="loginForm.get('username')?.errors?.minlength"
+    >Username must be longer than {{ loginForm.get('username')?.errors?.minlength.requiredLength }} characters.</span>
+      <span
+      class="form__feedback-text-login"
+      *ngIf="true"
+    >Has been logged. Wait to redirect</span>
+    </div>
   </form>
 </div>
+
+
