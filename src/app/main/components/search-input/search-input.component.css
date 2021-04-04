@@ -1,3 +1,30 @@
+
+.search-box__field {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.search-box__input {
+  height: 40px;
+  font-size: 1rem;
+  padding: .4rem;
+  outline: none;
+  border: 2px solid black;
+  border-right: none;
+}
+
+.submit-button {
+  height: 40px;
+  background-color: transparent;
+  border: 2px solid black;
+  border-left: none;
+  outline: none;
+}
+
 .search-button {
   cursor: pointer;
 }

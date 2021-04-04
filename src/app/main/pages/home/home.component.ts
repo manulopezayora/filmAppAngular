@@ -7,9 +7,9 @@ import { FilmsService } from '../../../services/films/films.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  title: string = '';
-  noResults: boolean = true;
-  filmResults: any[] = [];
+  title      : string  = '';
+  noResults  : boolean = true;
+  filmResults: any[]   = [];
 
 
   constructor(private _filmSvc: FilmsService) { }

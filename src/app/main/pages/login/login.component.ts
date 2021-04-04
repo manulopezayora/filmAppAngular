@@ -34,21 +34,25 @@ export class LoginComponent implements OnInit {
     }
 
   onSubmit = (): void => {
+    this.newUser = this.loginForm.value;
 
-    this.newUser.push(this.loginForm.value);
-
-    if(this._loginService.getUsersData()){
-      this._loginService.getUsersData().map(
-        (user: any )=> {
-          this.loginForm.get('username')?.value === user.username &&
-          this.loginForm.get('password')?.value === user.password  ?
-          this._loginService.setTokenSession(user.username):
-          this._loginService.saveUser(this.usersData, this.newUser);
-        }
-      )
+    if(this._loginService.getUsersData() === null){
+      this._loginService.setTokenSession(this.loginForm.get('username')?.value)
+      this._loginService.saveUser([this.newUser]);
+    } else {
+      const data: any = this._loginService.getUsersData();
+      const username = data.findIndex((user: any) => user.username === this.loginForm.get('username')?.value)
+      const password = data.findIndex((user: any) => user.password === this.loginForm.get('password')?.value)
+      if (username !== -1 && password !== -1) {
+        this._loginService.setTokenSession(this.loginForm.get('username')?.value);
+        this._router.navigate(['home']);
+      } else {
+        this._loginService.setTokenSession(this.loginForm.get('username')?.value);
+        this.usersData.push(this.newUser);
+        this._loginService.saveUser(this.usersData);
+        this._router.navigate(['home']);
+      }
     }
-    this.usersData === null && this._loginService.saveUser(this.usersData = [], this.newUser);
-    this._router.navigate(['home'])
   }
 
   fieldIsValid = (name: string): boolean => {

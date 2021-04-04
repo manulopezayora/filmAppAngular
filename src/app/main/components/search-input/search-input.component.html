@@ -1,10 +1,13 @@
 <section class="search-box">
   <form class="search-box__field" (ngSubmit)="search()" autocomplete="off">
     <input
+      class="search-box__input"
       type="text"
       name="title"
       [(ngModel)]="title"
       placeholder="Search title ..." />
-    <span class="material-icons search-button">search</span>
+      <button class="submit-button">
+        <span class="material-icons search-button">search</span>
+      </button>
   </form>
 </section>

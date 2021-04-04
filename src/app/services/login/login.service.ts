@@ -25,7 +25,7 @@ export class LoginService {
     true;
   }
 
-  saveUser = (userData: any, newUser: any): void => {
-    userData.push(localStorage.setItem('user', JSON.stringify(newUser)));
+  saveUser = ( newUser: any): void => {
+    localStorage.setItem('user', JSON.stringify(newUser));
   }
 }
