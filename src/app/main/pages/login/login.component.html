@@ -41,10 +41,6 @@
       class="form__feedback-text-float"
       *ngIf="loginForm.get('username')?.errors?.minlength"
     >Username must be longer than {{ loginForm.get('username')?.errors?.minlength.requiredLength }} characters.</span>
-      <span
-      class="form__feedback-text-login"
-      *ngIf="true"
-    >Has been logged. Wait to redirect</span>
     </div>
   </form>
 </div>

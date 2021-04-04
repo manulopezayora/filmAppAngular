@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../services/login/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,16 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  show = false;
+  show    : boolean = false;
+  isLogged: boolean = false;
 
 
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
-  showMenu(){
+  showMenu = () => {
     this.show = !this.show;
   }
 
