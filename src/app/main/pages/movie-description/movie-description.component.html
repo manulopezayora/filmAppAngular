@@ -1,1 +1,23 @@
-<p>movie-description works!</p>
+<div class="film-container" *ngIf="filmDescription">
+  <div class="card">
+    <section class="first">
+      <h1 class="card__title">{{ filmDescription.Title }}</h1>
+      <img class="card__poster" [src]="filmDescription.Poster" [alt]="filmDescription.Title">
+    </section>
+    <section class="second">
+      <h2 class="card__sub-title">Movie Description</h2>
+      <h3>Director: {{ filmDescription.Director }}</h3>
+      <h3>Genre: {{ filmDescription.Genre }}</h3>
+      <h3>Rated: {{ filmDescription.Rated }}</h3>
+      <h3>Actors: {{ filmDescription.Actors }}</h3>
+      <p>Plot: {{ filmDescription.Plot }}</p>
+      <small>Writer: {{ filmDescription.Writer }}</small>
+    </section>
+
+    <div class="card__buttons">
+      <a class="card__butons-link" routerLink="/home">Back to search</a>
+      <a class="card__butons-link" href="">Add to Fav</a>
+    </div>
+  </div>
+</div>
+

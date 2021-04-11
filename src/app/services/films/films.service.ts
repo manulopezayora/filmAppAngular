@@ -11,8 +11,13 @@ export class FilmsService {
 
   constructor(private _http: HttpClient) { }
 
-  getResults(title: string) {
+  getResults = (title: string) => {
     const url = `${this._baseUrl}&s=${title}`;
+    return this._http.get<Result[]>(url);
+  }
+
+  getMovieDescription = (id: string) => {
+    const url = `${this._baseUrl}&i=${id}`;
     return this._http.get<Result[]>(url);
   }
 
