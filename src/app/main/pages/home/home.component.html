@@ -6,8 +6,10 @@
     <h1 class="card__title">{{film.Title}}</h1>
     <img class="card__poster" [src]="film.Poster" [alt]="film.Title">
     <div class="card__buttons">
-      <a class="card__butons-link" href="">Description...</a>
+      <a class="card__butons-link" router-link="" >Description...</a>
       <a class="card__butons-link" href="">Add to Fav</a>
     </div>
   </div>
 </div>
+
+<!-- TODO: Lazy load para la paginación -->
