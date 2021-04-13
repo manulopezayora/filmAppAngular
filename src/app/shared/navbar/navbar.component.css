@@ -90,5 +90,5 @@
 
 .menu__list-item {
   padding: 1.2rem 0;
-
+  outline: none;
 }

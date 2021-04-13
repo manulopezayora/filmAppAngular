@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { FilmsService } from '../../../services/films/films.service';
+import { LoginService } from '../../../services/login/login.service';
 
 @Component({
   selector: 'app-home',
@@ -15,8 +16,9 @@ export class HomeComponent implements OnInit {
 
 
   constructor(
-    private _spinner: NgxSpinnerService,
-    private _filmSvc: FilmsService
+    private _spinner  : NgxSpinnerService,
+    private _loginSvc : LoginService,
+    private _filmSvc  : FilmsService
     ) { }
 
   ngOnInit(): void {
@@ -50,6 +52,16 @@ export class HomeComponent implements OnInit {
           this._spinner.hide();
         }
       )
+  }
+
+  addMovieToFav = (id: string) => {
+    const userData: any = this._filmSvc.getUsers();
+    const userSessionData: any = this._filmSvc.getSessionUsers();
+    const indexUser = userData.findIndex((element: any) => {
+      if (element.username === userSessionData) return element.username
+    })
+    userData[indexUser].favourites.push(id)
+    this._loginSvc.saveUser(userData)
   }
 
 }

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm = this._formBuilder.group({
     username: ['', [Validators.required, Validators.minLength(3)]],
     password: ['', [Validators.required]],
-    favourites: ['']
+    favourites: [[]]
   });
 
   newUser  : any     = [];

@@ -21,5 +21,13 @@ export class FilmsService {
     return this._http.get<Result[]>(url);
   }
 
+  getUsers = () => {
+    const data: any = localStorage.getItem('user');
+    return JSON.parse(data)
+  }
+
+  getSessionUsers = () => {
+    return sessionStorage.getItem('userSession');
+  }
 
 }
