@@ -3,8 +3,9 @@
 <div class="film-container">
   <p *ngIf="noResults">{{ errorFeedback }}</p>
   <div class="card" *ngFor="let film of filmResults">
-    <h1 class="card__title">{{film.Title}}</h1>
-    <img class="card__poster" [src]="film.Poster" [alt]="film.Title">
+    <h2 class="card__title">{{film.Title}}</h2>
+    <img class="card__poster" *ngIf="film.Poster !== 'N/A'" [src]="film.Poster" [alt]="film.Title">
+    <h3 class="poster" *ngIf="film.Poster === 'N/A'">Poster not found! :(</h3>
     <div class="card__buttons">
       <a class="card__butons-link" [routerLink]="['/movie', film.imdbID]" >Description</a>
       <a class="card__butons-link button--add" (click)="addFilmToFav(film.imdbID)" *ngIf="checkFilmInFavourites(film.imdbID)">Add to Fav</a>

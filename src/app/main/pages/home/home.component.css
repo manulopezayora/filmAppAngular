@@ -9,10 +9,21 @@
 
 .card {
   text-align: center;
+  width: 80%;
+}
+
+.card__title {
+  margin: 1rem auto;
+  width: 80%;
 }
 
 .card__poster {
   max-width: 100%;
+}
+
+.poster {
+  padding: 2rem .4rem;
+  border: 1px solid black;
 }
 
 .card__buttons {
