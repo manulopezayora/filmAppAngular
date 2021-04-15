@@ -9,11 +9,10 @@ import { LoginService } from '../../../services/login/login.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  title         : string  = '';
-  noResults     : boolean = true;
-  errorFeedback : string  = 'Please, write title to search...';
-  filmResults   : any[]   = [];
-
+  title           : string  = '';
+  noResults       : boolean = true;
+  errorFeedback   : string  = 'Please, write title to search...';
+  filmResults     : any[]   = [];
 
   constructor(
     private _spinner  : NgxSpinnerService,
@@ -25,6 +24,8 @@ export class HomeComponent implements OnInit {
   }
 
   search(title: string) {
+    if (title.trim() === '') return;
+
     this._spinner.show();
       this.title = title;
       this._filmSvc.getResults(title).subscribe(
@@ -60,8 +61,38 @@ export class HomeComponent implements OnInit {
     const indexUser = userData.findIndex((element: any) => {
       if (element.username === userSessionData) return element.username;
     });
-    (userData[indexUser].favourites.includes(id)) ? console.error("El " + id + " ya existe.") : userData[indexUser].favourites.push(id);
+    userData[indexUser].favourites.push(id);
     this._loginSvc.saveUser(userData);
   }
+
+  removeFilmToFav = (id: string) => {
+    const userData: any = this._filmSvc.getUsers();
+    const userSessionData: any = this._filmSvc.getSessionUsers();
+    const indexUser = userData.findIndex((element: any) => {
+      if (element.username === userSessionData) return element.username;
+    });
+    const filmIndex: any = userData[indexUser].favourites.indexOf(id);
+
+    (userData[indexUser].favourites.includes(id)) ?
+    userData[indexUser].favourites.splice(filmIndex, 1) :
+    userData[indexUser].favourites.push(id);
+
+    this._loginSvc.saveUser(userData);
+  }
+
+  checkFilmInFavourites = (id: string) => {
+    const userData: any = this._filmSvc.getUsers();
+    const userSessionData: any = this._filmSvc.getSessionUsers();
+    const indexUser = userData.findIndex((element: any) => {
+      if (element.username === userSessionData) return element.username;
+    });
+    if (userData[indexUser].favourites.includes(id)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+
 
 }

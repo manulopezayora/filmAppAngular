@@ -6,8 +6,9 @@
     <h1 class="card__title">{{film.Title}}</h1>
     <img class="card__poster" [src]="film.Poster" [alt]="film.Title">
     <div class="card__buttons">
-      <a class="card__butons-link" [routerLink]="['/movie', film.imdbID]" >Description...</a>
-      <a class="card__butons-link" (click)="addFilmToFav(film.imdbID)">Add to Fav</a>
+      <a class="card__butons-link" [routerLink]="['/movie', film.imdbID]" >Description</a>
+      <a class="card__butons-link button--add" (click)="addFilmToFav(film.imdbID)" *ngIf="checkFilmInFavourites(film.imdbID)">Add to Fav</a>
+      <a class="card__butons-link button--remove" (click)="removeFilmToFav(film.imdbID)" *ngIf="!checkFilmInFavourites(film.imdbID)">Remove to Fav</a>
     </div>
   </div>
 </div>
