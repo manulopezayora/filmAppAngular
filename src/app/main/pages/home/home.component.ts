@@ -13,6 +13,9 @@ export class HomeComponent implements OnInit {
   noResults       : boolean = true;
   errorFeedback   : string  = 'Please, write title to search...';
   filmResults     : any[]   = [];
+  userData        : any;
+  userSessionData : any;
+  indexUser       : any;
 
   constructor(
     private _spinner  : NgxSpinnerService,
@@ -55,44 +58,32 @@ export class HomeComponent implements OnInit {
       )
   }
 
-  addFilmToFav = (id: string) => {
-    const userData: any = this._filmSvc.getUsers();
-    const userSessionData: any = this._filmSvc.getSessionUsers();
-    const indexUser = userData.findIndex((element: any) => {
-      if (element.username === userSessionData) return element.username;
+  setUserData = (): void => {
+    this.userData = this._filmSvc.getUsers();
+    this.userSessionData = this._filmSvc.getSessionUsers();
+    this.indexUser = this.userData.findIndex((element: any) => {
+      if (element.username === this.userSessionData) return element.username;
     });
-    userData[indexUser].favourites.push(id);
-    this._loginSvc.saveUser(userData);
+  }
+
+  addFilmToFav = (id: string) => {
+    this.setUserData();
+    this.userData[this.indexUser].favourites.push(id);
+    this._loginSvc.saveUser(this.userData);
   }
 
   removeFilmToFav = (id: string) => {
-    const userData: any = this._filmSvc.getUsers();
-    const userSessionData: any = this._filmSvc.getSessionUsers();
-    const indexUser = userData.findIndex((element: any) => {
-      if (element.username === userSessionData) return element.username;
-    });
-    const filmIndex: any = userData[indexUser].favourites.indexOf(id);
-
-    (userData[indexUser].favourites.includes(id)) ?
-    userData[indexUser].favourites.splice(filmIndex, 1) :
-    userData[indexUser].favourites.push(id);
-
-    this._loginSvc.saveUser(userData);
+    this.setUserData();
+    const filmIndex: any = this.userData[this.indexUser].favourites.indexOf(id);
+    (this.userData[this.indexUser].favourites.includes(id)) ?
+    this.userData[this.indexUser].favourites.splice(filmIndex, 1) :
+    this.userData[this.indexUser].favourites.push(id);
+    this._loginSvc.saveUser(this.userData);
   }
 
   checkFilmInFavourites = (id: string) => {
-    const userData: any = this._filmSvc.getUsers();
-    const userSessionData: any = this._filmSvc.getSessionUsers();
-    const indexUser = userData.findIndex((element: any) => {
-      if (element.username === userSessionData) return element.username;
-    });
-    if (userData[indexUser].favourites.includes(id)) {
-      return false;
-    } else {
-      return true;
-    }
+    this.setUserData();
+    if (this.userData[this.indexUser].favourites.includes(id)) { return false }
+    else { return true }
   }
-
-
-
 }

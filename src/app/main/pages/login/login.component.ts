@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {
       this.checkSession();
       this.usersData = this._loginService.getUsersData();
-
     }
 
   onSubmit = (): void => {
@@ -69,7 +68,6 @@ export class LoginComponent implements OnInit {
     sessionStorage.getItem('userSession') === null ?
     this.isLogged = false :
     this.isLogged = true;
-
     this.isLogged === true && this._router.navigate(['home'])
   }
 
