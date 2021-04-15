@@ -54,14 +54,14 @@ export class HomeComponent implements OnInit {
       )
   }
 
-  addMovieToFav = (id: string) => {
+  addFilmToFav = (id: string) => {
     const userData: any = this._filmSvc.getUsers();
     const userSessionData: any = this._filmSvc.getSessionUsers();
     const indexUser = userData.findIndex((element: any) => {
-      if (element.username === userSessionData) return element.username
-    })
-    userData[indexUser].favourites.push(id)
-    this._loginSvc.saveUser(userData)
+      if (element.username === userSessionData) return element.username;
+    });
+    (userData[indexUser].favourites.includes(id)) ? console.error("El " + id + " ya existe.") : userData[indexUser].favourites.push(id);
+    this._loginSvc.saveUser(userData);
   }
 
 }
