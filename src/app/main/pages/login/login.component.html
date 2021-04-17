@@ -23,24 +23,25 @@
         [ngClass]="{'input-invalid': fieldIsValid('password')}"
       />
       <label
-      class="form__input-label"
-      [ngClass]="{
+        class="form__input-label"
+        [ngClass]="{
         'label-invalid': fieldIsValid('password'),
         'form__input-active': labelAnimation('password')
-      }"
-      >Password</label>
+      }">
+        Password
+      </label>
     </div>
+
     <button type="submit" class="form__submit-button" [disabled]="loginForm.invalid">Log In</button>
+
     <div class="form__feedback">
-      <p
-        class="form__feedback-text"
-      >
+      <p class="form__feedback-text">
       Please enter your username and password. If the user does not exist, a new user will be generated.
       </p>
       <span
-      class="form__feedback-text-float"
-      *ngIf="loginForm.get('username')?.errors?.minlength"
-    >Username must be longer than {{ loginForm.get('username')?.errors?.minlength.requiredLength }} characters.</span>
+        class="form__feedback-text-float"
+        *ngIf="loginForm.get('username')?.errors?.minlength"
+      >Username must be longer than {{ loginForm.get('username')?.errors?.minlength.requiredLength }} characters.</span>
     </div>
   </form>
 </div>
