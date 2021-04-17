@@ -13,7 +13,9 @@ export class NavbarComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(
+    private _loginSvc: LoginService
+  ) { }
 
   ngOnInit(): void {
 
@@ -21,6 +23,10 @@ export class NavbarComponent implements OnInit {
 
   showMenu = () => {
     this.show = !this.show;
+  }
+
+  logout = () => {
+    this._loginSvc.removeSession();
   }
 
 

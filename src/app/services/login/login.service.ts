@@ -28,4 +28,8 @@ export class LoginService {
   saveUser = ( newUser: any): void => {
     localStorage.setItem('user', JSON.stringify(newUser));
   }
+
+  removeSession = () => {
+    sessionStorage.removeItem('userSession');
+  }
 }

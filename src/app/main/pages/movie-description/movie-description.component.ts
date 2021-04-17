@@ -28,7 +28,7 @@ export class MovieDescriptionComponent implements OnInit {
     this._spinner.show();
     this._activatedRoute.params.subscribe(({ id }) => {
       console.log(id)
-      this._filmsSvc.getMovieDescription(id).subscribe(film => {
+      this._filmsSvc.getFilmDescription(id).subscribe(film => {
         this.filmDescription = film;
         this._spinner.hide();
       })

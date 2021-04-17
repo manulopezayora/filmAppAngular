@@ -16,7 +16,7 @@ export class FilmsService {
     return this._http.get<Result[]>(url);
   }
 
-  getMovieDescription = (id: string) => {
+  getFilmDescription = (id: string) => {
     const url = `${this._baseUrl}&i=${id}`;
     return this._http.get<Result[]>(url);
   }
