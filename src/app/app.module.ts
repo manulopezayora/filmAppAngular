@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { MainModule } from './main/main.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CheckLoginGuard } from './shared/guards/check-login.guard';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NgxSpinnerModule,
     MainModule
   ],
-  providers: [],
+  providers: [CheckLoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

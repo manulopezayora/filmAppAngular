@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,8 @@ export class NavbarComponent implements OnInit {
 
 
   constructor(
-    private _loginSvc: LoginService
+    private _router   : Router,
+    private _loginSvc : LoginService
   ) { }
 
   ngOnInit(): void {
@@ -27,6 +29,7 @@ export class NavbarComponent implements OnInit {
 
   logout = () => {
     this._loginSvc.removeSession();
+    this._router.navigate(['login'])
   }
 
 
