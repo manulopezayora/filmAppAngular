@@ -5,18 +5,37 @@
       <img class="card__poster" [src]="filmDescription.Poster" [alt]="filmDescription.Title">
     </section>
     <section class="second">
-      <h2 class="card__sub-title">Movie Description</h2>
-      <h3>Director: {{ filmDescription.Director }}</h3>
-      <h3>Genre: {{ filmDescription.Genre }}</h3>
-      <h3>Rated: {{ filmDescription.Rated }}</h3>
-      <h3>Actors: {{ filmDescription.Actors }}</h3>
-      <p>Plot: {{ filmDescription.Plot }}</p>
-      <small>Writer: {{ filmDescription.Writer }}</small>
+      <h2 class="card__sub-title">Description</h2>
+      <p>
+        <strong>Director:</strong>
+        {{ filmDescription.Director }}
+      </p>
+      <p>
+        <strong>Genre:</strong>
+        {{ filmDescription.Genre }}
+      </p>
+      <p>
+        <strong>Rated:</strong>
+        {{ filmDescription.Rated }}
+      </p>
+      <p>
+        <strong>Actors:</strong>
+        {{ filmDescription.Actors }}
+      </p>
+      <p>
+        <strong>Writer:</strong>
+        {{ filmDescription.Writer }}
+      </p>
+      <p>
+        <strong>Plot:</strong>
+        {{ filmDescription.Plot }}
+      </p>
     </section>
 
     <div class="card__buttons">
       <a class="card__butons-link" routerLink="/home">Back to search</a>
-      <a class="card__butons-link" href="">Add to Fav</a>
+      <a class="card__butons-link button--add" (click)="addFilmToFav(filmDescription.imdbID)" *ngIf="checkFilmInFavourites(filmDescription.imdbID)">Add to Fav</a>
+      <a class="card__butons-link button--remove" (click)="removeFilmToFav(filmDescription.imdbID)" *ngIf="!checkFilmInFavourites(filmDescription.imdbID)">Remove to Fav</a>
     </div>
   </div>
 </div>

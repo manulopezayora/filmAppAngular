@@ -31,3 +31,11 @@
   padding: .5rem 1.2rem;
   text-decoration: none;
 }
+
+.button--add {
+  background-color: #102e64;
+}
+
+.button--remove {
+  background-color: #a71717;
+}

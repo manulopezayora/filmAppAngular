@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private _spinner  : NgxSpinnerService,
     private _loginSvc : LoginService,
-    private _filmSvc  : FilmsService
+    private _filmsSvc  : FilmsService
     ) { }
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
 
     this._spinner.show();
       this.title = title;
-      this._filmSvc.getResults(title).subscribe(
+      this._filmsSvc.getResults(title).subscribe(
         (films: any) => {
           setTimeout(() => {
             if (films.Response === 'True') {
@@ -59,8 +59,8 @@ export class HomeComponent implements OnInit {
   }
 
   setUserData = (): void => {
-    this.userData = this._filmSvc.getUsers();
-    this.userSessionData = this._filmSvc.getSessionUsers();
+    this.userData = this._filmsSvc.getUsers();
+    this.userSessionData = this._filmsSvc.getSessionUsers();
     this.indexUser = this.userData.findIndex((element: any) => {
       if (element.username === this.userSessionData) return element.username;
     });
