@@ -26,12 +26,12 @@ export class FavouritesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getFavouriteFilms();
-    this.setFavouriteFilms()
+    this.setFavouriteFilms();
   }
 
   setFavouriteFilms = () => {
     this._spinner.show();
+    this.getFavouriteFilms();
     this.favouriteFilmsResult.forEach(film => {
       this._filmsSvc.getFilmDescription(film).subscribe(filmData => {
         this.favouriteFilms.push(filmData);
@@ -68,6 +68,7 @@ export class FavouritesComponent implements OnInit {
     this.userData[this.indexUser].favourites.splice(filmIndex, 1) :
     this.userData[this.indexUser].favourites.push(id);
     this._loginSvc.saveUser(this.userData);
+    this.favouriteFilms = [];
     this.setFavouriteFilms();
   }
 
