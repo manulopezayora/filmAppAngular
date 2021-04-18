@@ -1,3 +1,8 @@
+.favourite-title {
+  text-align: center;
+  font-size: 2rem;
+}
+
 .film-container {
   display: flex;
   flex-direction: column;
@@ -9,12 +14,15 @@
 
 .card {
   text-align: center;
-  width: 80%;
+  width: 300px;
 }
 
 .card__title {
   margin: 1rem auto;
   width: 80%;
+  height: 60px;
+  font-size: 1.2rem;
+  overflow: hidden;
 }
 
 .card__poster {
@@ -35,7 +43,7 @@
   padding: 1rem .2rem;
 }
 
-.card__butons-link {
+.card__buttons-link {
   color: #eee;
   background-color: black;
   padding: .5rem 1.2rem;
@@ -48,4 +56,34 @@
 
 .button--remove {
   background-color: #a71717;
+}
+
+
+/* Tablet */
+@media all and (min-width: 768px) {
+  .film-container {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    column-gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Desktop */
+@media all and (min-width:1200px){
+  .film-container {
+    grid-template-columns: repeat(3, 300px);
+  }
+
+  .card__buttons-link {
+    cursor: pointer;
+  }
+}
+
+/* Desktop */
+@media all and (min-width:1650px){
+  .film-container {
+    grid-template-columns: repeat(5, 300px);
+  }
 }

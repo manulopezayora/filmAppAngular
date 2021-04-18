@@ -6,37 +6,44 @@
     </section>
     <section class="second">
       <h2 class="card__sub-title">Description</h2>
-      <p>
+
+      <p class="card__description-text">
         <strong>Director:</strong>
         {{ filmDescription.Director }}
       </p>
-      <p>
+
+      <p class="card__description-text">
         <strong>Genre:</strong>
         {{ filmDescription.Genre }}
       </p>
-      <p>
+
+      <p class="card__description-text">
         <strong>Rated:</strong>
         {{ filmDescription.Rated }}
       </p>
-      <p>
+
+      <p class="card__description-text">
         <strong>Actors:</strong>
         {{ filmDescription.Actors }}
       </p>
-      <p>
+
+      <p class="card__description-text">
         <strong>Writer:</strong>
         {{ filmDescription.Writer }}
       </p>
-      <p>
+
+      <p class="card__description-text">
         <strong>Plot:</strong>
         {{ filmDescription.Plot }}
       </p>
-    </section>
 
-    <div class="card__buttons">
-      <a class="card__butons-link" routerLink="/home">Back to search</a>
-      <a class="card__butons-link button--add" (click)="addFilmToFav(filmDescription.imdbID)" *ngIf="checkFilmInFavourites(filmDescription.imdbID)">Add to Fav</a>
-      <a class="card__butons-link button--remove" (click)="removeFilmToFav(filmDescription.imdbID)" *ngIf="!checkFilmInFavourites(filmDescription.imdbID)">Remove to Fav</a>
-    </div>
+      <div class="card__buttons">
+        <a class="card__butons-link" routerLink="/home">Back to search</a>
+        <a class="card__butons-link button--add" (click)="addFilmToFav(filmDescription.imdbID)" *ngIf="checkFilmInFavourites(filmDescription.imdbID)">Add to Fav</a>
+        <a class="card__butons-link button--remove" (click)="removeFilmToFav(filmDescription.imdbID)" *ngIf="!checkFilmInFavourites(filmDescription.imdbID)">Remove to Fav</a>
+      </div>
+    </section>
   </div>
+
 </div>
 

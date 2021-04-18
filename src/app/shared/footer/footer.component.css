@@ -20,3 +20,23 @@
 .footer__copy {
   font-size: .8rem;
 }
+
+
+
+/* Tablet */
+@media all and (min-width: 768px) {
+  .footer__link-text {
+    font-size: 1rem;
+  }
+
+  .footer__copy {
+    font-size: 1rem;
+  }
+}
+
+/* Desktop */
+@media all and (min-width:1200px){
+  .footer__link-item {
+    cursor: pointer;
+  }
+}

@@ -89,6 +89,56 @@
 }
 
 .menu__list-item {
+  font-size: 1.2rem;
   padding: 1.2rem 0;
   outline: none;
+}
+
+/* Tablet */
+@media all and (min-width: 768px) {
+
+  .menu {
+    flex-direction: row;
+  }
+
+  .menu__box-button {
+    display: none;
+  }
+
+  .menu__list {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    list-style-type: none;
+    position: relative;
+    top: 0;
+  }
+
+  .menu__list-item {
+    font-size: 1.4rem;
+    padding: 0 0 0 2rem;
+  }
+}
+
+/* Desktop */
+@media all and (min-width:1200px){
+
+  .menu {
+    padding: 1rem 1rem 1rem 3rem;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .menu__list-item {
+    font-size: 1.6rem;
+    padding: 0 3rem 0 5rem;
+    cursor: pointer;
+    transition: .5s;
+  }
+
+  .menu__list-item:hover {
+    color: #757575;
+  }
 }

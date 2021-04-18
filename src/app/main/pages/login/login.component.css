@@ -83,18 +83,9 @@
   top: 0;
 }
 
-.form__feedback-text-login {
-  position: absolute;
-  background-color: green;
-  color: #eee;
-  font-size: 1rem;
-  font-weight: bold;
-  width: 100%;
-  padding-top: 5rem;
-  padding-left: .5rem;
-  padding-right: .5rem;
-  padding-bottom: .8rem;
-  text-align: center;
-  top: 0;
+@media all and (min-width: 960px) {
+  .form__submit-button {
+    cursor: pointer;
+  }
 }
 
