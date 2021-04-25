@@ -16,6 +16,7 @@ export class CheckLoginGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+
       if (!this._authSvc.checkSession) {
         this._router.navigate(['/login'])
         return false;

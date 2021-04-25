@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { CheckLoginGuard } from '../../shared/guards/check-login.guard';
-
 @Injectable({
   providedIn: 'root'
 })
