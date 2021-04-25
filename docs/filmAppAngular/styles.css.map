@@ -1,0 +1,1 @@
+{"version":3,"sources":["./src/styles.css"],"names":[],"mappings":"AAAA;EACE,sBAAsB;AACxB;;AAEA;EACE,SAAS;EACT,oCAAoC;AACtC","file":"styles.css","sourcesContent":["*, *::before, *::after {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n  font-family: 'Open Sans', sans-serif;\n}\n"],"sourceRoot":"webpack:///"}
